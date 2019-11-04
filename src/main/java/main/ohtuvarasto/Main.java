@@ -1,4 +1,4 @@
-package main;
+package main.ohtuvarasto;
 
 import ohtu.ohtuvarasto.Varasto;
 
