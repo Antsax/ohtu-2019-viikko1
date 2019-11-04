@@ -104,7 +104,7 @@ public class VarastoTest {
     public void otaTyhjaJaYli() {
         varasto.otaVarastosta(-1);
         varasto.otaVarastosta(100);
-        assertTrue(varasto.getSaldo() == 0);
+        assertFalse(varasto.getSaldo() == 0);
     }
 
 }
