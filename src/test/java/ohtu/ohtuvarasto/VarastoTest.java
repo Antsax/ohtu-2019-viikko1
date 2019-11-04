@@ -8,6 +8,7 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
 import static org.junit.Assert.*;
 
 public class VarastoTest {
@@ -63,6 +64,47 @@ public class VarastoTest {
 
         // varastossa pitäisi olla tilaa 10 - 8 + 2 eli 4
         assertEquals(4, varasto.paljonkoMahtuu(), vertailuTarkkuus);
+    }
+
+    @Test
+    public void varastoTilavuusJaAlkuSaldo() {
+        Varasto var = new Varasto(10, 10);
+        assertNotNull(var);
+    }
+    
+    @Test
+    public void liianPieniTilavuusJaAlkuSaldo() {
+        Varasto var = new Varasto(-5, 0);
+        assertNotNull(var);
+    }
+    
+    @Test
+    public void tilavuudetLiianPienet() {
+        Varasto var = new Varasto(0);
+        Varasto var2 = new Varasto(0, -5);
+        assertNotNull(var);
+        assertNotNull(var2);
+    }
+    
+    @Test
+    public void tulostusToimii() {
+        String testi = varasto.toString();
+        assertNotNull(testi);
+    }
+    
+    @Test
+    public void lisaaVarastoonNegatiivinenJaYli() {
+        Varasto var = new Varasto(10, 10);
+        var.lisaaVarastoon(-5);
+        var.lisaaVarastoon(11);
+        assertNotNull(var);
+    }
+    
+    @Test
+    public void otaTyhjaJaYli() {
+        varasto.otaVarastosta(-1);
+        varasto.otaVarastosta(100);
+        assertTrue(varasto.getSaldo() == 0);
     }
 
 }

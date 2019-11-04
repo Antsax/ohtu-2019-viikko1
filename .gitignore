@@ -4,3 +4,4 @@ build/
 
 # ignore files with the following filename extension
 *.tmp
+/.nb-gradle/
